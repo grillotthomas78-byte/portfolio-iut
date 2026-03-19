@@ -1,0 +1,351 @@
+/* --- RESET DE BASE --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #121212;
+  --surface-color: #1e1e1e;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --accent-color: #00e676; /* Vert Électrique Tech */
+  --accent-hover: #69f0ae;
+  --border-color: #333;
+  --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --transition: all 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-color);
+}
+
+body {
+  font-family: var(--font-main);
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-color);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* --- HEADER & NAVIGATION --- */
+header {
+  background: rgba(18, 18, 18, 0.95);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(5px);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+header h1 strong {
+  color: var(--accent-color);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  border-radius: 8px;
+}
+
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+nav a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  font-size: 0.95rem;
+  padding: 5px 0;
+  position: relative;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+}
+
+nav a.active {
+  color: var(--accent-color);
+}
+
+nav a.active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent-color);
+}
+
+/* --- SECTION HERO --- */
+.hero {
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+  background: radial-gradient(circle at center, #1a1a1a 0%, #121212 100%);
+  overflow: hidden;
+}
+
+/* Container pour les particules JS */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 10; /* Au-dessus des particules */
+}
+
+/* Style Photo de Profil */
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent-color);
+  box-shadow: 0 0 20px rgba(0, 230, 118, 0.3);
+  margin-bottom: 25px;
+  transition: transform 0.5s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+.hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+
+/* Style pour l'effet Typewriter JS */
+.typewriter-text {
+  color: var(--accent-color);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+}
+
+/* --- SECTIONS GÉNÉRALES --- */
+section {
+  padding: 80px 0;
+}
+
+section.light {
+  background-color: #161616; /* Gris très légèrement plus clair */
+}
+
+h2.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 50px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+h2.section-title::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-color);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+h3 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+strong {
+  color: #fff;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border-color);
+  margin: 40px 0;
+}
+
+/* --- GRILLE DE CARTES (PROJETS & SKILLS) --- */
+.projets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  align-items: stretch;
+}
+
+.projet {
+  background-color: var(--surface-color);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.projet:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+  box-shadow: 0 5px 15px rgba(0, 230, 118, 0.1);
+}
+
+.projet img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+}
+
+.projet h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.projet p {
+  font-size: 0.95rem;
+  flex-grow: 1; /* Pousse le contenu vers le bas si nécessaire */
+}
+
+/* --- BOUTONS --- */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: transparent;
+  color: var(--accent-color);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 700;
+  border: 2px solid var(--accent-color);
+  transition: var(--transition);
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn:hover {
+  background-color: var(--accent-color);
+  color: #121212;
+  box-shadow: 0 0 15px rgba(0, 230, 118, 0.4);
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+}
+
+/* --- PAGE COMPÉTENCES (LISTE HORIZONTALE) --- */
+.skills-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  list-style: none;
+  margin-bottom: 50px;
+}
+
+.skills-nav li a {
+  display: block;
+  padding: 10px 20px;
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.skills-nav li a:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background-color: rgba(0, 230, 118, 0.05);
+}
+
+/* --- FOOTER --- */
+footer {
+  background-color: #0a0a0a;
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 30px 0;
+  border-top: 1px solid var(--border-color);
+  margin-top: 60px;
+}
+
+footer p {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+/* --- ANIMATION FADE-IN (Observer) --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- RESPONSIVE BASIC --- */
+@media (max-width: 768px) {
+  .hero h2 { font-size: 2.2rem; }
+  header .container { flex-direction: column; gap: 15px; }
+  nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
+}
